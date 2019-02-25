@@ -81,8 +81,8 @@ h1 {letter-spacing: 6px}
 	<td><input type = "date" name = "M_birth" id = "birth"></td></tr>
 	<tr><td>성별 </td>
 	<td><select name = "M_gender" id = "gender" >   
-		<option value = "M">M</option>
-		<option value = "F">F</option>
+		<option value = "M">남성</option>
+		<option value = "F">여성</option>
 	</select></td></tr>
 	<tr><td>주소</td>
 	<td><input type = "text" name = "M_add" id = "add"></td></tr>
