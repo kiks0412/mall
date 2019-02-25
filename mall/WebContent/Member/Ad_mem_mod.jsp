@@ -36,6 +36,9 @@ function pwCheck(){
 	alert("회원수정이 완료 되었습니다.")
 	document.frm.submit();
 }
+function outList(){
+	location.href = "Ad_mem_delete.jsp";
+}
 </script>
 </head>
 <body>
@@ -58,7 +61,7 @@ function pwCheck(){
 if(rs.next()){
 %>
 <tr><td>아이디</td>
-<td><input type = "text"  name = "M_id" id = "m_id" readonly value ="<%=rs.getString("M_id") %>"></td></tr>
+<td><input type = "text"  name = "M_id" id = "M_id" readonly value ="<%=rs.getString("M_id") %>"></td></tr>
 <tr><td>비밀번호</td>
 <td><input type = "password" name = "M_passwd" id = "passwd1" ></td></tr>
 <tr><td>비밀번호 확인</td>
@@ -76,6 +79,7 @@ if(rs.next()){
 <% } %>
 </table>
 <input type = "button" value = "수정" onclick = "pwCheck()">
+<input type = "button" value = "탈퇴"  onclick ="outList()">
 </form>
 <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>

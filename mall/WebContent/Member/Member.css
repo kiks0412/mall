@@ -6,13 +6,12 @@ th {
 	background-color: #ccc;
 	text-align : left;
 }
-h2{
+h2 {
 	text-align : center;
 }
 input{[type=text] [type=password] [type=date] [type=tel]} {
 	width: 100px;
 }
-
 @media screen and (max-width: 600px) {
 	input[type], .me {
 		width: 20%;
