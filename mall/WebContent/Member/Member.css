@@ -1,0 +1,21 @@
+/* Member폴더에만 적용되는 스타일 */
+.me {
+	width : 1000px;
+	border : 1px double blue;
+}
+th {
+	background-color: #ccc;
+	text-align : left;
+}
+h2{
+	text-align : center;
+}
+input{[type=text] [type=password] [type=date] [type=tel]} {
+	width: 100px;
+}
+
+@media screen and (max-width: 600px) {
+	input[type], .me {
+		width: 20%;
+	}
+}
