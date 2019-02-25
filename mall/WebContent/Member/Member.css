@@ -1,6 +1,7 @@
 /* Member�������� ����Ǵ� ��Ÿ�� */
 .me {
 	width : 1000px;
+	border : 1px double;
 }
 th {
 	background-color: #ccc;
