@@ -36,6 +36,9 @@ function pwCheck(){
 	alert("회원수정이 완료 되었습니다.")
 	document.frm.submit();
 }
+function outList(){
+	location.href = "Ad_mem_delete.jsp";
+}
 </script>
 </head>
 <body>
@@ -76,6 +79,7 @@ if(rs.next()){
 <% } %>
 </table>
 <input type = "button" value = "수정" onclick = "pwCheck()">
+<input type = "button" value = "탈퇴"  onclick ="outList()">
 </form>
 <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
