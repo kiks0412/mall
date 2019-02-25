@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="../common/head.jsp"></jsp:include>
+
 <script>
 	
 </script>
@@ -33,3 +34,4 @@
  
     <script>alert("<%=rs.getString("p_name")%>가 추가되었습니다.");history.back();</script>
  
+<jsp:include page="../common/footer.jsp"></jsp:include>

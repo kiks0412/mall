@@ -97,5 +97,6 @@ PASSWD <input type="password" name="M_passwd" id="passwd">
 
 
 		</table>
+		<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
 </html>

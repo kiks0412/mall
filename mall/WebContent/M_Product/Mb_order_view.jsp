@@ -4,6 +4,7 @@
 	pageEncoding="UTF-8"%>
 
 <jsp:include page="../common/head.jsp"></jsp:include>
+
 <script>
 function comma(num){
     var len, point, str; 
@@ -76,5 +77,6 @@ function comma(num){
 
 
 		</table>
+		<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
 </html>

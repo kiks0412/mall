@@ -153,6 +153,7 @@ tr:hover{background-color:#ACC5E8;}
 
 
 </body>
+<jsp:include page="../common/footer.jsp"></jsp:include>
 </html>
 
 
