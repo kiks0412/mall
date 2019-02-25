@@ -38,7 +38,7 @@
 			%>
 			
 				<tr>
-					<td rowspan="5"><img src="<%=img%>"	width="500px" height="300px"></td>
+					<td rowspan="5"><img src="./img/<%=img%>"	width="500px" height="300px"></td>
 					<td width="20px"></td>
 					<th align="left">&nbsp;&ensp;상품명</th>
 					<td><%=rs.getString("p_name")%></td>

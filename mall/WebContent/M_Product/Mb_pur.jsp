@@ -3,10 +3,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="../common/head.jsp"></jsp:include>
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script language='javascript' type='text/javascript'>
 
-
+var IMP = window.IMP; // 생략가능
+IMP.init('imp20196180'); 
 
 function insertCheck(){
 	if(frm.m_tel.value == ""){
@@ -19,21 +21,16 @@ function insertCheck(){
 		frm.tel.focus();
 		return;
 	}
-	if(frm.pw.value == ""){
-		alert("비밀번호가 입력되지 않았습니다.");
-		frm.pw.focus();
-		return;
-	}
-	
+
 	IMP.request_pay({
-	    pg : 'inicis', // version 1.1.0부터 지원.
+	    pg : 'html5_inicis', // version 1.1.0부터 지원.
 	    pay_method : 'card',
 	    merchant_uid : 'merchant_' + new Date().getTime(),
 	    name : '주문명:결제',
 	    amount : 100,
 	    buyer_name : frm.m_name.value,
 	    buyer_tel : frm.m_tel.value,
-	    m_redirect_url : 'reservationPay.jsp'
+	    m_redirect_url : 'Mb_pur.jsp'
 	}, function(rsp) {
 	    if ( rsp.success ) {
 	        var msg = '결제가 완료되었습니다.';
@@ -285,8 +282,8 @@ function comma(num){
 				<td width="100"><input type="text" name="m_add" id="m_add" value="<%=session.getAttribute("M_add") %>" required></td>
 			</tr>
 		
-		
 		</table>
+		</fieldset>
 
 		<fieldset align="center">
 			<legend>결제방법</legend>
@@ -301,6 +298,7 @@ function comma(num){
 		</div>
 	
 </form>
-<jsp:include page="../common/footer.jsp"></jsp:include>
+<br>
 </body>
+<jsp:include page="../common/footer.jsp"></jsp:include>
 </html>

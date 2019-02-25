@@ -27,10 +27,8 @@ function comma(num){
 
 
 		<h3 align="center" width="80%">주문조회</h3>
-		<span class='green_window'>
-		<input type='text' class='input_text' />
-		</span>
-		<button type='submit' class='sch_smit'>검색</button>
+	
+	
 		<table border="1" align="center">
 		
 		
@@ -76,7 +74,8 @@ function comma(num){
 			%>
 
 
-		</table>
+		</table><br><br>
 		<jsp:include page="../common/footer.jsp"></jsp:include>
+		
 </body>
 </html>

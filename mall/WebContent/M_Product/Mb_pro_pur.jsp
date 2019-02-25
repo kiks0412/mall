@@ -34,4 +34,3 @@
  
     <script>alert("<%=rs.getString("p_name")%>가 추가되었습니다.");history.back();</script>
  
-<jsp:include page="../common/footer.jsp"></jsp:include>

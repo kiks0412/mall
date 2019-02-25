@@ -73,9 +73,11 @@
 			</table>
 			
 			<br> <br>
+			<%=imgs.length %>
+			
 			<%if(imgs!=null)
 			for(int i=1;i<imgs.length;i++){ %>
-			<img src="img/<%=imgs[i]%>" width="500px" height="300px">
+			<div align="center"><img src="img/<%=imgs[i]%>" width="500px" height="300px"></div>
 <%
 			}	
 			%>

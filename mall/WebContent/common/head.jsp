@@ -50,6 +50,7 @@ h1 {letter-spacing: 6px}
         <a href="../M_Product/main.jsp" class="w3-bar-item w3-button">Home</a>
         <a href="../Member/Mb_Select.jsp" class="w3-bar-item w3-button">개인정보 관리</a>
         <a href="../M_Product/Mb_pro_view.jsp" class="w3-bar-item w3-button">상품보기</a>
+        <a href="../M_Product/Mb_order_view.jsp" class="w3-bar-item w3-button">주문보기</a>
         <a href="../Mb_bd_list.jsp"" class="w3-bar-item w3-button w3-hide-small">게시판</a>
   <% } %>
 <%if (session.getAttribute("M_id") == null){ %>  
