@@ -17,6 +17,7 @@
 	}
 </script>
 <jsp:include page="../common/head.jsp"></jsp:include>
+
 <body>
 		<section>
 		
@@ -80,5 +81,6 @@
 			%>
 			
 		</section>
+		<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
 </html>

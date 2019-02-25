@@ -33,7 +33,7 @@ function upList(){
 
 <form name = "frm">
 <h2>개인 정보 조회</h2>
-<table class = "me">
+<table align="center" class = "me">
 <%
 	Connection conn = jdbcUtil.connect();
 	String sql = "SELECT M_ID, M_NAME, M_BIRTH, M_GENDER, M_ADD, M_TEL FROM MEMBER WHERE M_ID = ?";
@@ -59,6 +59,6 @@ if(rs.next()){
 </table>
 <input type = "button" value = "수정"  onclick ="upList()">
 </form>
-
+<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -25,11 +25,14 @@ h1 {letter-spacing: 6px}
 <%@include file="../common/head.jsp"  %>
 
 
+
 <form name = "frm">
 <h2>회원 관리</h2>
+<div >
 <input type = "text" name = "text">
 <input type = "submit" value = "검색" ><br><br>
-<table class = "me">
+</div>
+<table align="center" class = "me">
 <tr class = "tr">
 <th>아이디</th>
 <th>이름</th>
@@ -65,5 +68,7 @@ h1 {letter-spacing: 6px}
 	<% } %>
 </table>
 </form>
+<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
+
 </html>

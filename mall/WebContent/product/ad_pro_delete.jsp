@@ -32,7 +32,7 @@
 	</form>
 
 </body>
-
+<jsp:include page="../common/footer.jsp"></jsp:include>
 </html>
 
 

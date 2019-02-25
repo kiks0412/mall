@@ -54,10 +54,137 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body,h1 {font-family: "Raleway", Arial, sans-serif}
-h1 {letter-spacing: 6px}
-.w3-row-padding img {margin-bottom: 12px}
-</style>
+	<style>
+
+		body{
+			font-family: 나눔고딕;
+			margin:0;
+			}
+
+		nav{
+			overflow:hidden;
+			background-color:#999;
+			}
+		nav ul{
+			list-style:none;
+			padding:0;
+			margin:0;
+			display:inline;
+			}
+		nav ul li{
+			margin:0;
+			float:left;
+			}
+		nav a{
+			display:block;
+			color: #f2f2f2;
+			text-align:center;
+			padding:14px 16px;
+			text-decoration:none;
+			}
+		nav a:hover{
+			background-color:#ddd;
+			color:black;
+			}
+		#left_a{
+			float:left;
+			width:25%;
+			text-align:center;
+			height:700px;
+			padding:15px;
+			background-color:#ccc;
+			}
+		#right_a{
+			float:right;
+			width:25%;
+			text-align:center;
+			height:700px;
+			padding:15px;
+			background-color:#ccc;
+			}
+		section{
+			width:50%;
+			height:700px;
+			float:left;
+			}
+		#frm{
+			width:600px;
+			margin:20px auto;
+			padding:20px;
+			text-align:center;
+			background-color:#f0f0f5;
+			}
+		form ul{
+			padding:0;
+			margin:0;
+			}
+		form ul li{
+			list-style-type:none;
+			line-height:50px;
+			background-color:rgba(255,255,255,.2);
+			border:1px solid white;
+			border-radius:5px;
+			margin:5px;
+			}
+		fieldset{
+			border:none;
+			margin-bottom:16px;
+			font-size:1.2em;
+			}
+		legend{
+			font-size:1.3em;
+			font-weight:700;
+			text-shadow:2px 2px 1px white;
+			}
+		label{
+			width:150px;
+			float:left;
+			text-align:right;
+			font-weight:500;
+			}
+		input{
+			width:250px;
+			height:35px;
+			padding:5px;
+			}
+		input:hover{
+			background:#ffffcc;
+			}
+		button{
+			width:80px;
+			background-color:#003366;
+			color:white;
+			border-radius:15px;
+			padding:2px;
+			font-weight:bold;
+			font-size:1.2em;
+			}
+		#rs{
+			width:80px;
+			background-color:#003366;
+			color:white;
+			border-radius:15px;
+			padding:2px;
+			font-weight:bold;
+			font-size:1.2em;
+			}
+		section a{
+			padding:10px;
+			text-decoration:none;
+			color:black;
+			}
+		section a:hover{
+			text-decoration:underline;
+			}
+		footer{
+			clear:both;
+			background-color:#999;
+			padding: 10px;
+			text-align:center;
+			border:1px solid #bcbcbc;
+			}
+	</style>
+
 </head>
 <body>
 
@@ -66,31 +193,35 @@ h1 {letter-spacing: 6px}
 
 <jsp:include page="../common/head.jsp"></jsp:include>
 
-<h2 align = "center">회원 등록</h2>
-<form name = "frm" action = "Mb_mem_regPro.jsp">
-<table>
-	<tr><td>아이디</td>
+<h1 align = "center" >회원 등록</h1>
+<form name = "frm" id="frm" action = "Mb_mem_regPro.jsp">
+<table align="center" border>
+	<tr><th>아이디</th>
 	<td><input type = "text" name = "M_id" id = "id" onchange = "idChack()" ><span id = "res" ></span></td></tr>
-	<tr><td>비밀번호</td>
+	<tr><th>비밀번호</th>
 	<td><input type = "password" name = "M_passwd" id = "passwd1" ></td></tr>
-	<tr><td>비밀번호 확인</td>
+	<tr><th>비밀번호 확인</th>
 	<td><input type = "password" name = "M_passwd" id = "passwd2" ></td></tr>
-	<tr><td>이름</td>
+	<tr><th>이름</th>
 	<td><input type = "text" name = "M_name" id = "name"></td></tr>
-	<tr><td>생년월일</td>
+	<tr><th>생년월일</th>
 	<td><input type = "date" name = "M_birth" id = "birth"></td></tr>
-	<tr><td>성별 </td>
+	<tr><th>성별 </th>
 	<td><select name = "M_gender" id = "gender" >   
 		<option value = "M">남성</option>
 		<option value = "F">여성</option>
 	</select></td></tr>
-	<tr><td>주소</td>
+	<tr><th>주소</th>
 	<td><input type = "text" name = "M_add" id = "add"></td></tr>
-	<tr><td>연락처</td>
+	<tr><th>연락처</th>
 	<td><input type = "tel" name = "M_tel" id = "tel"></td></tr>
-</table>
-	<button type = "button" onclick = "pwCheck()">등록</button>
-	<input type = "reset" value = "초기화">
+</table><br>
+	<div align="center">
+	<button type = "button" onclick = "pwCheck()">등록</button>&nbsp;&nbsp;
+	<input type = "reset" id="rs" value = "초기화">
+	</div>
 </form>
+<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
+
 </html>

@@ -77,5 +77,7 @@ if(rs.next()){
 </table>
 <input type = "button" value = "수정" onclick = "pwCheck()">
 </form>
+<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
+
 </html>

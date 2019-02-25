@@ -128,5 +128,6 @@ h1 {
 				</div>
 			</form>
 		</section>
+		<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
 </html>

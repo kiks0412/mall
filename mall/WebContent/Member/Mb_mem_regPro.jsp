@@ -23,5 +23,5 @@ pstmt.setString(6, M_add);
 pstmt.setString(7, M_tel);
 pstmt.executeUpdate();
 
-response.sendRedirect("Mb_Select.jsp");
+response.sendRedirect("main.jsp");
 %>
