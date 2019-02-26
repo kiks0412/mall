@@ -2,18 +2,22 @@
 .me {
 	width : 1000px;
 	border : 1px double;
+	margin-bottom: 30px;
 }
 th {
 	background-color: #ccc;
-	text-align : left;
+	text-align : center;
 }
-h2{
+td {
+	
+	text-align : center;
+}
+h2 {
 	text-align : center;
 }
 input{[type=text] [type=password] [type=date] [type=tel]} {
 	width: 100px;
 }
-
 @media screen and (max-width: 600px) {
 	input[type], .me {
 		width: 20%;

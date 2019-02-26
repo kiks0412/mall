@@ -4,7 +4,30 @@
 	pageEncoding="UTF-8"%>
 
 <jsp:include page="../common/head.jsp"></jsp:include>
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
 
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #99cccc;
+  color: #663300;
+}
+</style>
 <script>
 function comma(num){
     var len, point, str; 
@@ -29,7 +52,7 @@ function comma(num){
 		<h3 align="center" width="80%">주문조회</h3>
 	
 	
-		<table border="1" align="center">
+		<table id="customers" align="center" width="80%" border="1" style="border-spacing: 0px">
 		
 		
 			<tr>
@@ -38,11 +61,13 @@ function comma(num){
 				<th>주문상품</th>
 				<th>색상</th>
 				<th>사이즈</th>
-				<th>회원명</th>
+				<th>주문수량</th>
+			</tr>
+			<tr>	
+				<th>받는사람</th>
 				<th>전화번호</th>
 				<th>주소</th>
 				<th>총주문액</th>
-				<th>주문수량</th>
 				<th>결제방식</th>
 				<th>주문상태</th>
 			</tr>
@@ -61,11 +86,14 @@ function comma(num){
 				<td><%=rs.getString("p_name")%></td>
 				<td><%=rs.getString("p_color")%></td>
 				<td><%=rs.getString("p_size")%></td>
+				<td><%=rs.getString("o_count")%></td>
+			</tr>
+			
+			<tr>
 				<td><%=rs.getString("m_name")%></td>
 				<td><%=rs.getString("m_tel")%></td>
 				<td><%=rs.getString("m_add")%></td>
 				<td><%=rs.getString("o_price")%></td>
-				<td><%=rs.getString("o_count")%></td>
 				<td><%=rs.getString("o_pay")%></td>
 				<td><%=rs.getString("o_condition")%></td>
 			</tr>

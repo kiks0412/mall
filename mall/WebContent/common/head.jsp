@@ -19,7 +19,7 @@ h1 {letter-spacing: 6px}
 
 <!-- Header -->
 <header class="w3-panel w3-center w3-opacity" style="padding:80px 16px">
-  <h1 class="w3-xlarge">SHOPPING MALL</h1>
+  <h1 class="w3-xlarge">INTERNATIONAL SHOP</h1>
   
   <%if (session.getAttribute("M_id") == null){ %>
   <form action="../common/LogIn.jsp" method="post">

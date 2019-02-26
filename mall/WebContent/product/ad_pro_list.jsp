@@ -1,6 +1,8 @@
+<%@page import="common.Paging"%>
 <%@page import="common.jdbcUtil"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.sql.Connection"%>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags" %>   
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -22,6 +24,126 @@ a{text-decoration:none;}
 color:red}
 th{background-color:#DCE1DC;}
 tr:hover{background-color:#ACC5E8;}
+
+.pagination,
+.pagination li a {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination li { background-color: lightseagreen;list-style-type:none; }
+
+.pagination a {
+  font-weight: 300;
+  padding-top: 1px;
+  text-decoration:none;  
+  border: 1px solid rgba(0,0,0,.25);
+  border-left-width: 0;
+  min-width:44px;
+  min-height:44px;
+  color: rgba(255,255,255,.85);  
+  box-shadow: inset 0px 1px 0px 0px rgba(255,255,255,.35);
+}
+
+.pagination li:not([class*="current"]) a:hover { 
+  background-color: rgba(255,255,255,.2);
+  border-top-color: rgba(0,0,0,.35);
+  border-bottom-color: rgba(0,0,0,.5);
+}
+
+.pagination li:not([class*="current"]) a:focus,
+.pagination li:not([class*="current"]) a:active {;
+  box-shadow: 0px 0px 10px 1px rgba(0,0,0,.25);
+  border-left-width:1px;
+}
+
+.pagination li:first-of-type a {
+  border-left-width: 1px;
+}
+
+.pagination li:first-of-type span,
+.pagination li:last-of-type span,
+.pagination li:nth-of-type(2) span,
+.pagination li:nth-last-of-type(2) span { 
+  /* screen readers only */
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.pagination li:first-child a::before,
+.pagination li:last-child a::after,
+.pagination li:nth-of-type(2) a::before,
+.pagination li:nth-last-of-type(2) a::after {  
+  display: inline-block;
+  font-family: Fontawesome;  
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
+/* 
+.pagination li:first-child a::before,
+.pagination li:last-child a::after { content: "\f100"; }
+
+.pagination li:nth-of-type(2) a::before,
+.pagination li:nth-last-of-type(2) a::after { content: "\f104"; }
+
+.pagination li:last-child a::after,
+.pagination li:nth-last-of-type(2) a::after { transform: rotate(180deg); }
+ */
+.pagination li.current a { 
+  padding-top:.25em;
+  color: rgba(255,255,255,1);
+  background-color: rgba(255,255,255,.15);
+  box-shadow: inset 0px 2px 1px 0px rgba(0,0,0,.25);
+  cursor: default;
+  pointer-events: none;
+}
+
+
+  .pagination li:nth-of-type(2) a { border-left-width: 1px; }
+
+}
+
+  .pagination li.current,
+  .pagination li:first-of-type,
+  .pagination li:last-of-type,
+  .pagination li:nth-of-type(2),
+  .pagination li:nth-last-of-type(2){
+    position: initial;
+    top: initial;
+    left: initial;
+  }
+
+  .pagination li:nth-of-type(2) a { border-left-width: 0; }
+
+}
+
+/* Just Setting a few defaults */
+
+html {  
+  overflow-y: scroll; 
+  box-sizing: border-box;  
+  font-size: 100%;
+  line-height: 1.4236;
+  font-family: 'Roboto', sans-serif;
+  background-color: lightseagreen;
+  color: #444;
+}
+/* 
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+ */
+
 </style>
 <script>
 	//돌아갈페이지
@@ -75,6 +197,21 @@ tr:hover{background-color:#ACC5E8;}
 </script>
 
 <body>
+<%	request.setCharacterEncoding("utf-8");
+	String p_no = request.getParameter("p_no");
+	String p_tag = request.getParameter("p_tag");
+	String p = request.getParameter("p");
+	
+	//페이징처리
+	Paging paging = new Paging();
+	int pageNo = 1;
+	if(p!=null && ! p.isEmpty()) {
+		pageNo = Integer.parseInt(p);
+	}
+	paging.setPage(pageNo);  //조회할 페이지 지정
+	paging.setPageUnit(4);
+	
+%>
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-content" style="max-width:1500px">
@@ -86,7 +223,18 @@ tr:hover{background-color:#ACC5E8;}
 
 
 	<section>
-		<h4 align="center" style="background-color:#f5c2f8;font-size:25px;width:60%;margin:auto;border-collapse: collapse;"> 상품 현황 </h4>
+		<h4 align="center" style="background-color:#f5c2f8;font-size:25px;width:60%;margin:auto;border-collapse: collapse;"> 상품 현황 </h4><br><br>
+		<div style="text-align:center">
+			<form method="post" name="frm">
+		번호 <input type="text" name="p_no" 
+				value="<%=p_no==null ? "" : p_no %>">
+		태그<input type="text" name="p_tag" 
+				value="<%=p_tag == null ? "" : p_tag %>">
+		<input type="submit" value="검색">
+		<input type="reset" value="초기화">
+		<input type="hidden" name="p">
+	</form>
+		</div>
 		<table border align="center" style="width:60%;">
 
 			<tr>
@@ -104,12 +252,36 @@ tr:hover{background-color:#ACC5E8;}
 			</tr>
 			<%
 				//db에서 조회해서 건수만큼 반복
-				String url = "jdbc:oracle:thin:@192.168.0.29:1521:xe";  //localhost
+			
 				Connection conn =jdbcUtil.connect();
-				String sql = "select p_no,p_name,p_tag,p_color,p_size,p_img,p_price,p_info,"+
+				
+				//검색조건 추가
+				String where = "";
+				if(p_no != null && !p_no.isEmpty()) {
+					where += " and p_no like  '%' || ? || '%' ";
+				}
+				if(p_tag != null && !p_tag.isEmpty()) {
+					where += " and p_tag = ? ";
+				}
+				
+				String sql =  "select * from ( select a.*, rownum  rnum from ( "+
+						"select p_no,p_name,p_tag,p_color,p_size,p_img,p_price,p_info,"+
 							" decode(p_condition,'0','품절','1','판매')as p_condition"+
-							" from product order by p_no";
+							" from product where 1=1 "+ where +" order by p_no"
+							+ " ) a ) b  where rnum between ? and ?" ;
+				System.out.print(sql); 
+				
 				PreparedStatement pstmt = conn.prepareStatement(sql);
+				
+				int i=0;
+				if(p_no != null && !p_no.isEmpty()) {
+					pstmt.setString(++i, p_no);
+				}
+				if(p_tag != null && !p_tag.isEmpty()) {
+					pstmt.setString(++i, p_tag);
+				}
+				pstmt.setInt(++i, paging.getFirst());
+				pstmt.setInt(++i, paging.getLast());
 				ResultSet rs = pstmt.executeQuery();
 				String img ="";
 				while (rs.next()) {
@@ -139,9 +311,23 @@ tr:hover{background-color:#ACC5E8;}
 					
 			</tr>
 
-			<%
-				}
-			%>
+			<%		
+	}
+	
+	//전체 레코드 건수
+	sql="select count(*) from product where 1=1 " + where;
+	pstmt = conn.prepareStatement(sql);
+	i=0;
+	if(p_no != null && !p_no.isEmpty()) {
+		pstmt.setString(++i, p_no);
+	}
+	if(p_tag != null && !p_tag.isEmpty()) {
+		pstmt.setString(++i, p_tag);
+	}
+	rs = pstmt.executeQuery();
+	rs.next();
+	paging.setTotalRecord(rs.getInt(1));
+%>
 		</table><br>
 		<div style="text-align: center">
 			
@@ -149,7 +335,13 @@ tr:hover{background-color:#ACC5E8;}
 		</div>
 			
 	</section><br>
-	
+<my:paging paging="<%=paging%>" jsfunc="go_list"/>
+<script>
+	function go_list(p){
+		document.frm.p.value = p;
+		document.frm.submit();
+	}
+</script>	
 
 
 </body>

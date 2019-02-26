@@ -22,6 +22,9 @@ h1 {letter-spacing: 6px}
 function upList(){
 	location.href = "Mb_mem_mod.jsp";
 }
+function outList(){
+	location.href = "Mb_mem_delete.jsp";
+}
 </script>
 </head>
 <body>
@@ -61,6 +64,10 @@ if(rs.next()){
 <input type = "button" value = "수정"  onclick ="upList()"><br>
 </div>
 </form><br>
+</table>
+<input type = "button" value = "수정"  onclick ="upList()">
+<input type = "button" value = "탈퇴"  onclick ="outList()">
+</form>
 <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
 </html>

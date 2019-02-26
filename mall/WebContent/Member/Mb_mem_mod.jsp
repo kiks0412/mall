@@ -181,15 +181,16 @@ function pwCheck(){
 <table class = "me">
 <%
 	Connection conn = jdbcUtil.connect();
+	String M_id = request.getParameter("M_id");
 	String sql = "SELECT M_ID, M_NAME, M_BIRTH, M_GENDER, M_ADD, M_TEL FROM MEMBER WHERE M_ID = ?";
 	PreparedStatement pstmt = conn.prepareStatement(sql);
-	pstmt.setString(1, (String)session.getAttribute("M_id"));
+	pstmt.setString(1, M_id);
 	ResultSet rs = pstmt.executeQuery();
 
 if(rs.next()){
 %>
 <tr><td>아이디</td>
-<td><input type = "text"  name = "M_id" id = "m_id" readonly value ="<%=rs.getString("M_id") %>"></td></tr>
+<td><input type = "text"  name = "M_id" id = "M_id" readonly value ="<%=rs.getString("M_id") %>"></td></tr>
 <tr><td>비밀번호</td>
 <td><input type = "password" name = "M_passwd" id = "passwd1" ></td></tr>
 <tr><td>비밀번호 확인</td>

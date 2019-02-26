@@ -12,6 +12,30 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #99cccc;
+  color: #663300;
+}
+
 body, h1 {
 	font-family: "Raleway", Arial, sans-serif
 }
@@ -31,12 +55,14 @@ h1 {
 
 <jsp:include page="../common/head.jsp"></jsp:include>
 		<h3 align="center" width="80%">주문조회</h3>
-		<table border="1" align="center">
 		
-		<span class='green_window'>
-		<input type='text' class='input_text' />
-		</span>
-		<button type='submit' class='sch_smit'>검색</button>
+		<div style="width:1000px;margin:auto">
+	<form name = "frm">
+	<input type = "text" name = "text">
+	<input type = "submit" value = "검색" ><br><br>
+	</form>
+	</div>
+		<table id="customers" border="1" align="center">
 			<tr>
 				<th>주문번호</th>
 				<th>주문일자</th>
@@ -73,12 +99,27 @@ h1 {
 				<td><%=rs.getString("o_pay")%></td>
 				<td><%=rs.getString("o_condition")%></td>
 			</tr>
-			<%
+		
+			
+				<%
 				}
 			%>
-
-
 		</table>
+		<h3 align="center">월별 매출 현황</h3>
+		<table id="customers" border="1" align="center">	
+<%			sql="select TO_CHAR(o_date,'YYYY-MM')ym, sum(o_count)sumcnt,sum(o_price)sumpc from ord group by TO_CHAR(o_date,'YYYY-MM') ";
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+%>		
+		
+			<tr>
+			<th><%=rs.getString("ym") %>월별 주문 건수</th><td><%=rs.getString("sumcnt") %>건</td>
+			<th><%=rs.getString("ym") %>월별 매출 합계</th><td><%=rs.getString("sumpc") %>원</td>
+			</tr>
+			<%} %>
+			</table>
+			<br><br>
 		<jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
 </html>

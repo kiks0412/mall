@@ -2,7 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
+<style>
+.bd{border-bottom: 1px solid;
+padding:15px;}
+table{border-spacing: 0px}
 
+</style>
 <script>
 	function goPrePur() {
 		alert("장바구니에 담았습니다");
@@ -38,7 +43,7 @@
 			%>
 			
 				<tr>
-					<td rowspan="5"><img src="./img/<%=img%>"	width="500px" height="300px"></td>
+					<td class="bd" rowspan="5"><img src="./img/<%=img%>"	width="500px" height="300px"></td>
 					<td width="20px"></td>
 					<th align="left">&nbsp;&ensp;상품명</th>
 					<td><%=rs.getString("p_name")%></td>
@@ -61,10 +66,10 @@
 					<td><%=rs.getString("p_price")%>원</td>
 				</tr>
 				<tr>
-				 	<td width="20px"></td>
-					<td><button type="button" onclick="goPur(<%=rs.getString("p_no")%>)">주문하기</button></td>
-					<td align="center"><button type="button" onclick="go_dt_view(<%=rs.getString("p_no")%>)">상세보기</button></td>
-					<td><button type="button" onclick="goPrePur(<%=rs.getString("p_no")%>)">장바구니</button></td>
+				 	<td  class="bd" width="20px"></td>
+					<td class="bd" ><button type="button" onclick="goPur(<%=rs.getString("p_no")%>)">주문하기</button></td>
+					<td  class="bd" align="center"><button type="button" onclick="go_dt_view(<%=rs.getString("p_no")%>)">상세보기</button></td>
+					<td class="bd" ><button type="button" onclick="goPrePur(<%=rs.getString("p_no")%>)">장바구니</button></td>
 				<tr>
 				
 			
