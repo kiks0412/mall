@@ -9,141 +9,14 @@
 <meta charset="UTF-8">
 <title>회원 수정 페이지</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href= "Member.css">
 <style>
-	<style>
-
-		body{
-			font-family: 나눔고딕;
-			margin:0;
-			}
-
-		nav{
-			overflow:hidden;
-			background-color:#999;
-			}
-		nav ul{
-			list-style:none;
-			padding:0;
-			margin:0;
-			display:inline;
-			}
-		nav ul li{
-			margin:0;
-			float:left;
-			}
-		nav a{
-			display:block;
-			color: #f2f2f2;
-			text-align:center;
-			padding:14px 16px;
-			text-decoration:none;
-			}
-		nav a:hover{
-			background-color:#ddd;
-			color:black;
-			}
-		#left_a{
-			float:left;
-			width:25%;
-			text-align:center;
-			height:700px;
-			padding:15px;
-			background-color:#ccc;
-			}
-		#right_a{
-			float:right;
-			width:25%;
-			text-align:center;
-			height:700px;
-			padding:15px;
-			background-color:#ccc;
-			}
-		section{
-			width:50%;
-			height:700px;
-			float:left;
-			}
-		#frm{
-			width:600px;
-			margin:20px auto;
-			padding:20px;
-			text-align:center;
-			background-color:#f0f0f5;
-			}
-		form ul{
-			padding:0;
-			margin:0;
-			}
-		form ul li{
-			list-style-type:none;
-			line-height:50px;
-			background-color:rgba(255,255,255,.2);
-			border:1px solid white;
-			border-radius:5px;
-			margin:5px;
-			}
-		fieldset{
-			border:none;
-			margin-bottom:16px;
-			font-size:1.2em;
-			}
-		legend{
-			font-size:1.3em;
-			font-weight:700;
-			text-shadow:2px 2px 1px white;
-			}
-		label{
-			width:150px;
-			float:left;
-			text-align:right;
-			font-weight:500;
-			}
-		input{
-			width:250px;
-			height:35px;
-			padding:5px;
-			}
-		input:hover{
-			background:#ffffcc;
-			}
-		button{
-			width:80px;
-			background-color:#003366;
-			color:white;
-			border-radius:15px;
-			padding:2px;
-			font-weight:bold;
-			font-size:1.2em;
-			}
-		#rs{
-			width:80px;
-			background-color:#003366;
-			color:white;
-			border-radius:15px;
-			padding:2px;
-			font-weight:bold;
-			font-size:1.2em;
-			}
-		section a{
-			padding:10px;
-			text-decoration:none;
-			color:black;
-			}
-		section a:hover{
-			text-decoration:underline;
-			}
-		footer{
-			clear:both;
-			background-color:#999;
-			padding: 10px;
-			text-align:center;
-			border:1px solid #bcbcbc;
-			}
-	</style>
+body,h1 {font-family: "Raleway", Arial, sans-serif}
+h1 {letter-spacing: 6px}
+.w3-row-padding img {margin-bottom: 12px}
 </style>
 <script>
 function resetCheck(){
@@ -178,10 +51,10 @@ function pwCheck(){
 
 <h2 align = "center">회원 수정</h2>
 <form name = "frm" id="frm" action = "Mb_mem_modPro.jsp">
-<table class = "me">
+<table class = "me" align = "center">
 <%
 	Connection conn = jdbcUtil.connect();
-	String M_id = request.getParameter("M_id");
+	String M_id = (String)session.getAttribute("M_id");
 	String sql = "SELECT M_ID, M_NAME, M_BIRTH, M_GENDER, M_ADD, M_TEL FROM MEMBER WHERE M_ID = ?";
 	PreparedStatement pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, M_id);
