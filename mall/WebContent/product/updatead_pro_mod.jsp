@@ -80,7 +80,7 @@ h1 {
 		%>
 		<section>
 			<h3 align="center"
-				style="background-color: #f5c2f8; font-size: 25px; width: 60%; margin: auto;">상품
+				style="background-color: #9999cc; font-size: 25px; width: 60%; margin: auto;">상품
 				수정</h3>
 			<form name="frm" action="updatead_pro_modPro.jsp" method="post">
 

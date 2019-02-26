@@ -104,7 +104,7 @@ h1 {
 				<%
 				}
 			%>
-		</table>
+		</table><br>
 		<h3 align="center">월별 매출 현황</h3>
 		<table id="customers" border="1" align="center">	
 <%			sql="select TO_CHAR(o_date,'YYYY-MM')ym, sum(o_count)sumcnt,sum(o_price)sumpc from ord group by TO_CHAR(o_date,'YYYY-MM') ";
