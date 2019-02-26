@@ -84,7 +84,8 @@ function fileupload(){
 				</tr>
 				<tr>
 					<td class="label">정보</td>
-					<td><input type="text" name="p_info" id="p_info"></td>
+					<td><textarea rows="5" cols="100" name="p_info" id="p_info"></textarea>
+					</td>
 				</tr>
 				<tr>
 					<td class="label">상태</td>
