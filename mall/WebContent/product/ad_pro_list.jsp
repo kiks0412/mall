@@ -22,7 +22,7 @@ a{text-decoration:none;}
 .product_img{width:80px;}
 .constyle{
 color:red}
-th{background-color:#DCE1DC;}
+th{background-color:#99cccc;}
 tr:hover{background-color:#ACC5E8;}
 
 .pagination,

@@ -48,14 +48,14 @@ function outList(){
 
 <jsp:include page="../common/head.jsp"></jsp:include>
 
-<h2>회원 수정</h2>
+<h2 align="center">회원 수정</h2>
 <form name = "frm" action = "Ad_mem_modPro.jsp">
-<table>
+<table align="center">
 <%
 	Connection conn = jdbcUtil.connect();
 	String sql = "SELECT M_ID, M_NAME, M_BIRTH, M_GENDER, M_ADD, M_TEL FROM MEMBER WHERE M_ID = ?";
 	PreparedStatement pstmt = conn.prepareStatement(sql);
-	pstmt.setString(1, (String)session.getAttribute("M_id"));
+	pstmt.setString(1, request.getParameter("M_id"));
 	ResultSet rs = pstmt.executeQuery();
 
 if(rs.next()){
@@ -78,8 +78,10 @@ if(rs.next()){
 <td><input type = "tel" name = "M_tel" id = "tel"></td></tr>
 <% } %>
 </table>
+<div align="center" style="margin:10px">
 <input type = "button" value = "수정" onclick = "pwCheck()">
 <input type = "button" value = "탈퇴"  onclick ="outList()">
+</div>
 </form>
 <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
