@@ -56,7 +56,7 @@ h1 {letter-spacing: 6px}
 <%if (session.getAttribute("M_id") == null){ %>  
       <a href="../M_Product/main.jsp" class="w3-bar-item w3-button">Home</a>
       <a href="../Member/Mb_mem_reg.jsp" class="w3-bar-item w3-button w3-light-grey">회원등록</a>
-      <a href="../board/list.jsp" class="w3-bar-item w3-button w3-hide-small">게시판</a>
+     
   <% } %> 
  <% 
     if(session.getAttribute("admin") != null){
