@@ -223,7 +223,7 @@ html {
 
 
 	<section>
-		<h4 align="center" style="background-color:#f5c2f8;font-size:25px;width:60%;margin:auto;border-collapse: collapse;"> 상품 현황 </h4><br><br>
+		<h4 align="center" style="background-color:#9999cc;font-size:25px;width:60%;margin:auto;border-collapse: collapse;"> 상품 현황 </h4><br><br>
 		<div style="text-align:center">
 			<form method="post" name="frm">
 		번호 <input type="text" name="p_no" 

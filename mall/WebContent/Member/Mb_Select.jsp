@@ -61,12 +61,9 @@ if(rs.next()){
 <% } %>
 </table><br>
 <div align="center">
-<input type = "button" value = "수정"  onclick ="upList()"><br>
-</div>
-</form><br>
-</table>
 <input type = "button" value = "수정"  onclick ="upList()">
 <input type = "button" value = "탈퇴"  onclick ="outList()">
+</div>
 </form>
 <jsp:include page="../common/footer.jsp"></jsp:include>
 </body>
