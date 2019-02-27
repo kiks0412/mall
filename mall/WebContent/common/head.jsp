@@ -51,12 +51,12 @@ h1 {letter-spacing: 6px}
         <a href="../Member/Mb_Select.jsp" class="w3-bar-item w3-button">개인정보 관리</a>
         <a href="../M_Product/Mb_pro_view.jsp" class="w3-bar-item w3-button">상품보기</a>
         <a href="../M_Product/Mb_order_view.jsp" class="w3-bar-item w3-button">주문보기</a>
-        <a href="../Mb_bd_list.jsp"" class="w3-bar-item w3-button w3-hide-small">게시판</a>
+        <a href="../board/list.jsp" class="w3-bar-item w3-button w3-hide-small">게시판</a>
   <% } %>
 <%if (session.getAttribute("M_id") == null){ %>  
       <a href="../M_Product/main.jsp" class="w3-bar-item w3-button">Home</a>
       <a href="../Member/Mb_mem_reg.jsp" class="w3-bar-item w3-button w3-light-grey">회원등록</a>
-      <a href="../Mb_bd_list.jsp"" class="w3-bar-item w3-button w3-hide-small">게시판</a>
+      <a href="../board/list.jsp" class="w3-bar-item w3-button w3-hide-small">게시판</a>
   <% } %> 
  <% 
     if(session.getAttribute("admin") != null){
@@ -65,7 +65,7 @@ h1 {letter-spacing: 6px}
       <a href="../product/ad_pro_list.jsp" class="w3-bar-item w3-button w3-hide-small">상품관리</a>
       <a href="../Order/Ab_order_view.jsp" class="w3-bar-item w3-button">주문관리</a>
       <a href="../Member/Ad_mem_list.jsp" class="w3-bar-item w3-button">회원관리</a>    
-      <a href="../Mb_bd_list.jsp"" class="w3-bar-item w3-button w3-hide-small">게시판</a>
+      <a href="../board/list.jsp" class="w3-bar-item w3-button w3-hide-small">게시판</a>
        <% } %>  
     </div>
   </div>
