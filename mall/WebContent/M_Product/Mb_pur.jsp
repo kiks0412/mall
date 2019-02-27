@@ -235,7 +235,7 @@ function comma(num){
 		<tr>
 
 			<td align="center"><input type="checkbox" name="memory" value="1"></td>
-			<td align="center"><img src="<%=imgs[0]%>" width="150px" height="100px"></td>
+			<td align="center"><img src="./img/<%=imgs[0]%>" width="150px" height="100px"></td>
 			<td align="center">(<%=rs.getString("p_no")%>)<%=rs.getString("p_name")%></td>
 			<td align="center"><select name="p_color"><option id="p_color" value="<%=rs.getString("p_color")%>"><%=rs.getString("p_color")%></option></select></td>
 			<td align="center"><select name="p_size"><option id="p_size" value="<%=rs.getString("p_size")%>"><%=rs.getString("p_size")%></option></select></td>

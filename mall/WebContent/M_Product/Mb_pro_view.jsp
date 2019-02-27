@@ -28,8 +28,9 @@ table{border-spacing: 0px}
 		<section>
 			<table align="center">
 			<%
+				request.setCharacterEncoding("utf-8");
 				String url = "jdbc:oracle:thin:@192.168.0.29:1521:xe";
-			Connection conn =jdbcUtil.connect();
+				Connection conn =jdbcUtil.connect();
 				String sql = "select * from product";
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery();
