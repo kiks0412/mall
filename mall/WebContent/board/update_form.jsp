@@ -46,7 +46,7 @@ if (rs.next()) {
 	b_no = rs.getInt("b_no");
 	String b_title = rs.getString("b_title");
 	String m_id = rs.getString("m_id");
-	String  b_contents = rs.getString(" b_contents");
+	String  b_contents = rs.getString("b_contents");
 	Date b_date = rs.getDate("b_date");
 %>
 <form method="post" action="update_verify.jsp">
