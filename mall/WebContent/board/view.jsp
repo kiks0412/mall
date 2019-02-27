@@ -7,7 +7,33 @@
 
 <html>
 <head><title>게시판</title></head>
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #99cccc;
+  color: #663300;
+}
+</style>
 <body>
+<jsp:include page="../common/head.jsp"></jsp:include>
 <%
 String url = "jdbc:oracle:thin:@192.168.0.29:1521:xe";
 Connection conn = jdbcUtil.connect();
@@ -24,18 +50,29 @@ String m_id = rs.getString("m_id");
 String B_CONTENTS = rs.getString("B_CONTENTS");
 Date b_date = rs.getDate("b_date");
 %>
-<table width="80%" align="center" border=1 >
+<table id="customers" width="80%" align="center" border=1 >
 <tr align="center">
-<td bgcolor="#FFFF99">글쓴이</td><td><%= m_id %></td>
-<td bgcolor="#FFFF99">등록일</td><td><%= b_date %></td></tr>
+<td bgcolor="#99CCCC">글쓴이</td><td><%= m_id %></td>
+<td bgcolor="#99CCCC">등록일</td><td><%= b_date %></td></tr>
 <tr>
-<td bgcolor="#FFFF99" align="center">제목</td>
+<td bgcolor="#99CCCC" align="center">제목</td>
 <td colspan=3><%= b_title %></td></tr>
 <tr height=200>
-<td bgcolor="#FFFF99" align="center">내용</td>
+<td bgcolor="#99CCCC" align="center">내용</td>
 <td colspan=3><%= B_CONTENTS %></td></tr>
 </table>
+
 <%
 }}
 %>
-<table width="75%" align="center" >
+<table id="customers"width="75%" align="center" >
+<tr align="center" >
+<td><a href="update_form.jsp?b_no=<%=b_no %>">수정 </a> </td>
+<td><a href="delete_verify.jsp?b_no=<%=b_no %>">삭제</a></td>
+<td><a href="list.jsp">목록으로</a></td>
+</tr>
+</table>
+</body>
+</html>
+<br><br>
+<jsp:include page="../common/footer.jsp"></jsp:include>

@@ -34,7 +34,7 @@
 <jsp:include page="../common/head.jsp"></jsp:include>
 <h1 align="center">게시판</h1>
 <table id="customers" width="75%" align="center" border=1 >
-<tr bgcolor="#FFFF99" >
+<tr bgcolor="#99CCCC" >
 <th>번호</th><th>제목</th><th>글쓴이</th><th>등록일</th></tr>
 <%
 String url = "jdbc:oracle:thin:@192.168.0.29:1521:xe";
@@ -52,7 +52,7 @@ Date b_date = rs.getDate("b_date");
 %>
 <tr>
 <td align="center"><%= b_no %></td>
-<td align="center"><a href="view.jsp?c_no=<%=b_no %>"><%= b_title %></a></td>
+<td align="center"><a href="view.jsp?b_no=<%=b_no %>"><%= b_title %></a></td>
 <td align="center"><%= m_id %></td>
 <td align="center"><%= b_date %></td>
 </tr>

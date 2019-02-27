@@ -43,24 +43,24 @@ String sql = " select b_no, b_title, M_id, b_date, b_contents" +
 PreparedStatement pstmt= conn.prepareStatement(sql);
 ResultSet rs= pstmt.executeQuery();
 if (rs.next()) {
-	int no = rs.getInt("b_no");
+	b_no = rs.getInt("b_no");
 	String b_title = rs.getString("b_title");
 	String m_id = rs.getString("m_id");
 	String  b_contents = rs.getString(" b_contents");
 	Date b_date = rs.getDate("b_date");
 %>
 <form method="post" action="update_verify.jsp">
-<input type="hidden" name="b_no" size="30" value="<%= no %>">
+<input type="hidden" name="b_no" size="30" value="<%= b_no %>">
 <table id="customers" width="75%" align="center" border=1 >
 <tr>
-<td align="center" bgcolor="#FFFF99">글쓴이</td>
+<td align="center" bgcolor="#99CCCC">글쓴이</td>
 <td><%= m_id %></td></tr>
 <tr>
-<td align="center" bgcolor="#FFFF99">제목</td>
+<td align="center" bgcolor="#99CCCC">제목</td>
 <td><input type="text" name="b_title" size="70" value="<%= b_title %>">
 </td></tr>
 <tr>
-<td bgcolor="#FFFF99" align="center">내용</td>
+<td bgcolor="#99CCCC" align="center">내용</td>
 <td><textarea name=b_contents rows="10" cols="70"><%= b_contents%>
 </textarea></td> </tr>
 </table>
