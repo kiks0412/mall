@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <jsp:include page="../common/head.jsp"></jsp:include>
+
 <!-- Photo Grid -->
 <div class="w3-row-padding w3-grayscale" style="margin-bottom:128px">
   <div class="w3-half">
@@ -14,3 +15,4 @@
      <a href="Mb_pro_dt_view.jsp?p_no=400"><img src="./img/티셔츠.jpg" style="width:100%"></a>
   </div>
 </div>
+<jsp:include page="../common/footer.jsp"></jsp:include>
