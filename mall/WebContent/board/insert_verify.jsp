@@ -18,12 +18,11 @@ Connection conn = jdbcUtil.connect();
 String b_contents = request.getParameter("b_contents");
 String sql = "insert into board " +
 " (b_no, m_id, b_title, b_contents, b_date) " +
-" values ( ( select max(b_no)+1 from board ), " +
+" values ( ( select max(b_no)+1 from board), " +
 " '" + m_id + "', " +
 " '" + b_title + "', " +
 " '" + b_contents + "', " +
-" sysdate, " +
-" 1 )";
+" sysdate )";
 PreparedStatement pstmt= conn.prepareStatement(sql);
 try {
 pstmt.executeQuery(sql);
